@@ -8,4 +8,6 @@ public interface UserMapper {
     public User get(String user_id);   
         
     public List<User> list();
+    
+    public User loginCheck(User user);
 }

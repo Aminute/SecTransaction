@@ -16,3 +16,8 @@
         </tr>
     </c:forEach>
 </table>
+<form action="login">
+  		 账户 ：<input type="text" name="user_id" value=""><br/>
+   		密码： <input type="password" name="user_pwd" value=""><br/>
+    <input type="submit" value="登录">
+</form>

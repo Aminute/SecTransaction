@@ -16,4 +16,12 @@ public class UserServiceImpl implements UserService{
     public List<User> list(){
         return userMapper.list();
     }
+    @Override
+    public void add(User c) {
+		userMapper.add(c);
+	}
+    public User loginCheck(User c) {
+    	User u = userMapper.loginCheck(c);
+		return u;
+    }
 }

@@ -5,7 +5,7 @@
  
     <mapper namespace="com.hai.mapper.UserMapper">
         <insert id="add" parameterType="User" >
-            insert into user ( user_id,user_name,user_pwd,user_mail ) values (#{user_id},#{user_name},#{user_pwd},#{user_mail})   
+            insert into user ( user_id ) values (#{user_id})   
         </insert>
          
         <select id="get" parameterType="_int" resultType="User">
@@ -14,18 +14,5 @@
  
         <select id="list" resultType="User">
             select * from   user    
-        </select>   
-        
-        <select id="loginCheck" parameterType="User" resultType="User">
-        select * 
-        from user
-        <where>
-			<if test="user_id != null and user_id != ''">
-				and `user_name` = #{user_id}
-			</if>
-			<if test="user_pwd != null and user_pwd != ''">
-				AND `user_pwd` = #{user_pwd}
-			</if>
-		</where>
-    </select>
+        </select>    
     </mapper>

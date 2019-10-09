@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hai.pojo.User;
@@ -31,32 +28,5 @@ public class UserController {
         mav.setViewName("listUser");
         return mav;
     }
-    @RequestMapping("/addUser")
-    public ModelAndView add(User user) throws Exception {
-    	userService.add(user);
-    	System.out.println("运行增加函数");
-        ModelAndView mav = new ModelAndView("redirect:/listUser");
-        return mav;
-    }
-    @RequestMapping("/login")
-    public String  login(@RequestParam("user_id") String user_id,
-			@RequestParam("user_pwd") String user_pwd,Model model){
-		User user = new User();
-		user.setUser_id(user_id);
-		user.setUser_pwd(user_pwd);
-		if(userService.loginCheck(user) != null){
-			model.addAttribute("user_id",user_id);
-			return "success";
-		}
-	    else{
-	    	model.addAttribute("error","账号或密码错误");
-	    	return "success";
-	    }
-		}
-    
-    @RequestMapping("/index")
-    public ModelAndView index() {
-    	  ModelAndView mav = new ModelAndView();
-          return mav;
-    }
+ 
 }

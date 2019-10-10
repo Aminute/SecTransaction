@@ -46,11 +46,11 @@ public class UserController {
 		user.setUser_pwd(user_pwd);
 		if(userService.loginCheck(user) != null){
 			model.addAttribute("user_id",user_id);
-			return "success";
+			return "goods_sell";
 		}
 	    else{
 	    	model.addAttribute("error","账号或密码错误");
-	    	return "success";
+	    	return "goods_sell";
 	    }
 		}
     

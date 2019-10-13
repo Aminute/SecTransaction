@@ -19,13 +19,7 @@
         <select id="loginCheck" parameterType="User" resultType="User">
         select * 
         from user
-        <where>
-			<if test="user_id != null and user_id != ''">
-				and `user_name` = #{user_id}
-			</if>
-			<if test="user_pwd != null and user_pwd != ''">
-				AND `user_pwd` = #{user_pwd}
-			</if>
-		</where>
+        where
+		user_id=#{user_id} and user_pwd=#{user_pwd}
     </select>
     </mapper>

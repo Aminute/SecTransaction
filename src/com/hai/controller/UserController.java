@@ -39,18 +39,24 @@ public class UserController {
         return mav;
     }
     @RequestMapping("/login")
-    public String  login(@RequestParam("user_id") String user_id,
+    public ModelAndView  login(@RequestParam("user_id") String user_id,
 			@RequestParam("user_pwd") String user_pwd,Model model){
 		User user = new User();
 		user.setUser_id(user_id);
 		user.setUser_pwd(user_pwd);
 		if(userService.loginCheck(user) != null){
-			model.addAttribute("user_id",user_id);
-			return "goods_sell";
+			//model.addAttribute("user_id",user_id);
+			ModelAndView mav = new ModelAndView("redirect:/goods_sell");
+			mav.addObject("user_id", user_id);
+			return mav;
+			//return "goods_sell";
 		}
 	    else{
-	    	model.addAttribute("error","账号或密码错误");
-	    	return "goods_sell";
+	    	ModelAndView mav = new ModelAndView("redirect:/goods_sell");
+			mav.addObject("user_id", user_id);
+			return mav;
+//	    	model.addAttribute("error","账号或密码错误");
+//	    	return "goods_sell";
 	    }
 		}
     

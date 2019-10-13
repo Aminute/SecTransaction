@@ -64,6 +64,5 @@ public class UserController {
     public ModelAndView index() {
     	  ModelAndView mav = new ModelAndView();
           return mav;
-          
     }
 }
